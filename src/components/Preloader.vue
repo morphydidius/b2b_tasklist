@@ -1,0 +1,62 @@
+<template>
+  <div v-if="!areIssuesDownloaded" class="preloader"></div>
+</template>
+
+<script>
+import { mapGetters } from 'vuex';
+export default {
+  name: 'Preloader',
+  computed: {
+    ...mapGetters(['areIssuesDownloaded'])
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.preloader {
+  position: relative;
+  min-height: 60px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, .9);
+    height: 100%;
+    width: 100%;
+    display: block !important;
+    user-select: none;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    margin-left: -15px;
+    margin-top: -15px;
+    width: 30px;
+    height: 30px;
+    border: 4px rgba(0, 0, 0, .25) solid;
+    border-top: 4px gray solid;
+    border-radius: 50%;
+    animation: preloader .6s infinite linear;
+  }
+}
+
+@keyframes preloader {
+  0% {
+      transform: rotate(0deg);
+    }
+
+  to {
+      transform: rotate(359deg);
+    }
+}
+
+</style>
