@@ -1,24 +1,20 @@
-# b2b_tasks_
+# Страница со списком задач Github
 
-## Project setup
-```
+> Проект на Vue.js (+ Vuex)
+
+## Приложение отображает открытые задачи на странице с помощью GitHub’s. Есть фильтрация задач по логину в Github. Состояние приложения реализовано с помощью Vuex. Геттеры тестируются с использованием Jest.
+
+``` bash
+# установка
 npm install
-```
 
-### Compiles and hot-reloads for development
-```
+# запуск и hot reload (localhost:8080)
 npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
+# запуск линтера
 npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# запуск тестов
+npm run test:unit
+
+```
