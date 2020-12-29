@@ -32,4 +32,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.issues {
+  min-width: 312px;
+}
 </style>

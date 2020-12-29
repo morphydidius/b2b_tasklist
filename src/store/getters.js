@@ -2,6 +2,15 @@ export default {
 	areIssuesDownloaded(state, { issuesList }) {
 		return issuesList && issuesList.length > 0;
 	},
+	authorFilterWord(state) {
+		return state.filters.author.filterWord;
+	},
+	areFiltersSet(state) {
+		return state.filters.author.isAuthorFilterOn;
+	},
+	isAuthorFilterListOpened(state) {
+		return state.filters && state.filters.author && state.filters.author.isAuthorListOpened;
+	},
 	issuesList(state) {
 		return state.issues && state.issues.filter(e => !e.pull_request);
 	},

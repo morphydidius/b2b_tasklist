@@ -1,8 +1,8 @@
 <template>
   <div v-if="areIssuesDownloaded" class="list">
-    <Header />
+    <Header :itemscount="issuesCount" />
     <div class="list__body">
-      <Issue v-for="(issue, index) in issuesList" :key="index" :issue="issue" />
+      <Issue v-for="(issue, index) in issuesListModified" :key="index" :issue="issue" />
     </div>
   </div>
 </template>
@@ -19,7 +19,16 @@ export default {
     Issue
   },
   computed: {
+    issuesListModified() {
+      return this.authorFilterWord
+        ? this.issuesList.filter((issue) => issue.user.login === this.authorFilterWord)
+        : this.issuesList;
+    },
+    issuesCount() {
+      return this.issuesListModified.length;
+    },
     ...mapGetters([
+      'authorFilterWord',
       'areIssuesDownloaded',
       'issuesList'
     ])
@@ -36,6 +45,11 @@ export default {
   max-width: 1216px;
   width: 90%;
   font: 16px/24px 'Segoe UI';
+
+  @media (max-width: 400px) {
+    font-size: 14px;
+    line-height: 21px;
+  }
 
   &__body {
     border: 1px solid #e1e4e8;
