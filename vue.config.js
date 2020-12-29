@@ -6,7 +6,7 @@ module.exports = {
   transpileDependencies: ['vuex-persist'],
   outputDir: resolve('public/'),
   configureWebpack: {
-  	resolve: {
+    resolve: {
         alias: {
             fonts: resolve('src/assets/fonts')
         }
